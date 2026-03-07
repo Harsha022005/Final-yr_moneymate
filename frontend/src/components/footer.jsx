@@ -18,13 +18,13 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="hover:text-gray-300">Home</a>
+                <button onClick={() => { }} className="hover:text-gray-300 bg-transparent border-none cursor-pointer p-0 text-white">Home</button>
               </li>
               <li>
-                <a href="#" className="hover:text-gray-300">Services</a>
+                <button onClick={() => { }} className="hover:text-gray-300 bg-transparent border-none cursor-pointer p-0 text-white">Services</button>
               </li>
               <li>
-                <a href="#" className="hover:text-gray-300">Contact</a>
+                <button onClick={() => { }} className="hover:text-gray-300 bg-transparent border-none cursor-pointer p-0 text-white">Contact</button>
               </li>
             </ul>
           </div>

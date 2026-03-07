@@ -23,7 +23,6 @@ export default function DuplicateDashboard() {
   const [prediction, setPrediction] = useState(null);
   const [investmentRec, setInvestmentRec] = useState(null);
   const [monthlyStats, setMonthlyStats] = useState([]);
-  const [statsLoading, setStatsLoading] = useState(false);
   const [loading, setLoading] = useState(false);
   const [darkMode, setDarkMode] = useState(() => {
     return localStorage.getItem("theme") === "dark" ||
