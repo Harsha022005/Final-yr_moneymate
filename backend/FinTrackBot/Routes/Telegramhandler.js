@@ -854,7 +854,7 @@ export async function sendtext(chatid, text, extra = '') {
 }
 
 export async function setWebhook() {
-    const webhookUrl = `https://bb79-205-254-186-192.ngrok-free.app/bot`;
+    const webhookUrl = process.env.WEBHOOK_URL || (process.env.RENDER_EXTERNAL_URL ? `${process.env.RENDER_EXTERNAL_URL}/bot` : "https://final-yr-moneymate.onrender.com/bot");
     console.log(' [SETTING WEBHOOK]', { webhookUrl });
 
     try {
