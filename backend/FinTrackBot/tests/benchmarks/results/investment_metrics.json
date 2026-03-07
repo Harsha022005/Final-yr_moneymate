@@ -1,0 +1,66 @@
+{
+  "timestamp": "2026-01-26T08:37:04.306Z",
+  "benchmarks": [
+    {
+      "incomeBracket": "< ₹30k",
+      "testCount": 5,
+      "metrics": {
+        "mse": "3527657.00",
+        "rmse": "1878.21",
+        "mae": "1584.20",
+        "r2": "-Infinity",
+        "accuracy": "0.00",
+        "meanError": "-984.20"
+      }
+    },
+    {
+      "incomeBracket": "₹30k-75k",
+      "testCount": 10,
+      "metrics": {
+        "mse": "15307048.20",
+        "rmse": "3912.42",
+        "mae": "3143.00",
+        "r2": "-2.8268",
+        "accuracy": "30.00",
+        "meanError": "-2631.80"
+      }
+    },
+    {
+      "incomeBracket": "₹75k-150k",
+      "testCount": 10,
+      "metrics": {
+        "mse": "48360368.80",
+        "rmse": "6954.16",
+        "mae": "5956.80",
+        "r2": "-6.7377",
+        "accuracy": "20.00",
+        "meanError": "-5956.80"
+      }
+    },
+    {
+      "incomeBracket": "₹150k-300k",
+      "testCount": 10,
+      "metrics": {
+        "mse": "172363930.80",
+        "rmse": "13128.74",
+        "mae": "12180.80",
+        "r2": "-5.8946",
+        "accuracy": "10.00",
+        "meanError": "-12180.80"
+      }
+    }
+  ],
+  "summary": {
+    "trainingTime": "34.12",
+    "avgPredictionTime": "0.0031",
+    "totalTests": 40,
+    "overallMetrics": {
+      "mse": "120059064.83",
+      "rmse": "10957.15",
+      "mae": "8159.93",
+      "r2": "0.6359",
+      "accuracy": "15.00",
+      "meanError": "-7957.13"
+    }
+  }
+}

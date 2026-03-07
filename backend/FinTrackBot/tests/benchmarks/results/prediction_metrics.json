@@ -1,0 +1,191 @@
+{
+  "timestamp": "2026-01-26T08:37:04.347Z",
+  "benchmarks": [
+    {
+      "seriesLength": 6,
+      "pattern": "stable",
+      "prediction": 19965,
+      "actual": 20958,
+      "error": 993,
+      "percentError": "4.74",
+      "confidence": 0.8487600758549476,
+      "method": "linear-regression",
+      "runtime": "12.50",
+      "modelMetrics": {
+        "precision": "1.0000",
+        "recall": "1.0000",
+        "f1Score": "1.0000",
+        "r2Score": "0.8488"
+      }
+    },
+    {
+      "seriesLength": 9,
+      "pattern": "stable",
+      "prediction": 20243,
+      "actual": 19238,
+      "error": 1005,
+      "percentError": "5.22",
+      "confidence": 0.3165871366431917,
+      "method": "linear-regression",
+      "runtime": "2.16",
+      "modelMetrics": {
+        "precision": "1.0000",
+        "recall": "1.0000",
+        "f1Score": "1.0000",
+        "r2Score": "0.3166"
+      }
+    },
+    {
+      "seriesLength": 12,
+      "pattern": "stable",
+      "prediction": 20792,
+      "actual": 19558,
+      "error": 1234,
+      "percentError": "6.31",
+      "confidence": 0.463643734270766,
+      "method": "linear-regression",
+      "runtime": "3.19",
+      "modelMetrics": {
+        "precision": "1.0000",
+        "recall": "1.0000",
+        "f1Score": "1.0000",
+        "r2Score": "0.4636"
+      }
+    },
+    {
+      "seriesLength": 18,
+      "pattern": "stable",
+      "prediction": 20362,
+      "actual": 19461,
+      "error": 901,
+      "percentError": "4.63",
+      "confidence": 0.4306078826179789,
+      "method": "linear-regression",
+      "runtime": "1.56",
+      "modelMetrics": {
+        "precision": "1.0000",
+        "recall": "1.0000",
+        "f1Score": "1.0000",
+        "r2Score": "0.4306"
+      }
+    },
+    {
+      "seriesLength": 24,
+      "pattern": "stable",
+      "prediction": 20468,
+      "actual": 20009,
+      "error": 459,
+      "percentError": "2.29",
+      "confidence": 0.0898301140214105,
+      "method": "linear-regression",
+      "runtime": "1.89",
+      "modelMetrics": {
+        "precision": "1.0000",
+        "recall": "1.0000",
+        "f1Score": "1.0000",
+        "r2Score": "0.0898"
+      }
+    },
+    {
+      "seriesLength": 12,
+      "pattern": "stable",
+      "prediction": 20177,
+      "actual": 20091,
+      "error": 86,
+      "percentError": "0.43",
+      "confidence": 0.17563034358029406,
+      "method": "linear-regression",
+      "runtime": "1.18",
+      "modelMetrics": {
+        "precision": "1.0000",
+        "recall": "1.0000",
+        "f1Score": "1.0000",
+        "r2Score": "0.1756"
+      }
+    },
+    {
+      "seriesLength": 12,
+      "pattern": "linear_growth",
+      "prediction": 22946,
+      "actual": 25262,
+      "error": 2316,
+      "percentError": "9.17",
+      "confidence": 0.40220128067672656,
+      "method": "linear-regression",
+      "runtime": "1.07",
+      "modelMetrics": {
+        "precision": "1.0000",
+        "recall": "1.0000",
+        "f1Score": "1.0000",
+        "r2Score": "0.4022"
+      }
+    },
+    {
+      "seriesLength": 12,
+      "pattern": "seasonal",
+      "prediction": 20854,
+      "actual": 24636,
+      "error": 3782,
+      "percentError": "15.35",
+      "confidence": 0.18444429356701508,
+      "method": "linear-regression",
+      "runtime": "3.99",
+      "modelMetrics": {
+        "precision": "1.0000",
+        "recall": "1.0000",
+        "f1Score": "1.0000",
+        "r2Score": "0.1844"
+      }
+    },
+    {
+      "seriesLength": 12,
+      "pattern": "volatile",
+      "prediction": 17976,
+      "actual": 24957,
+      "error": 6981,
+      "percentError": "27.97",
+      "confidence": 0.041511679500328635,
+      "method": "linear-regression",
+      "runtime": "2.70",
+      "modelMetrics": {
+        "precision": "0.6667",
+        "recall": "0.6667",
+        "f1Score": "0.6667",
+        "r2Score": "0.0415"
+      }
+    },
+    {
+      "seriesLength": 12,
+      "pattern": "declining",
+      "prediction": 17605,
+      "actual": 16126,
+      "error": 1479,
+      "percentError": "9.17",
+      "confidence": 0.3204942344158087,
+      "method": "linear-regression",
+      "runtime": "1.59",
+      "modelMetrics": {
+        "precision": "1.0000",
+        "recall": "1.0000",
+        "f1Score": "1.0000",
+        "r2Score": "0.3205"
+      }
+    }
+  ],
+  "summary": {
+    "avgPercentError": "8.53",
+    "minPercentError": "0.43",
+    "maxPercentError": "27.97",
+    "avgRuntime": "3.18",
+    "avgConfidence": "0.3274",
+    "stabilityMetrics": {
+      "mse": "342362.50",
+      "rmse": "585.12",
+      "mae": "481.30",
+      "mape": "2.41",
+      "accuracy": "100.00",
+      "meanError": "144.70"
+    },
+    "totalTests": 10
+  }
+}

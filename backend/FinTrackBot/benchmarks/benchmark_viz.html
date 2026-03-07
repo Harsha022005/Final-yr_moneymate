@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Moneymate ML Benchmarks</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .chart-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+
+        .chart-box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 48%;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #555;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .stats {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Moneymate ML Performance Benchmarks</h1>
+        <div class="stats">Generated on: <span id="timestamp"></span></div>
+
+        <div class="chart-row">
+            <div class="chart-box">
+                <h2>Inference Time (ms) vs Dataset Size</h2>
+                <canvas id="timeChart"></canvas>
+            </div>
+            <div class="chart-box">
+                <h2>Accuracy/Score (0-1) vs Dataset Size</h2>
+                <canvas id="accuracyChart"></canvas>
+            </div>
+        </div>
+
+        <div class="chart-row">
+            <div class="chart-box">
+                <h2>Memory Usage (MB) vs Dataset Size</h2>
+                <canvas id="memoryChart"></canvas>
+            </div>
+            <div class="chart-box">
+                <h2>Model Comparison Summary (N=1000)</h2>
+                <canvas id="radarChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const data = {
+            "timestamp": "2026-01-26T10:04:49.966Z",
+            "models": {
+                "overspending": [
+                    { "size": 10, "executionTime": 0.0195, "memoryUsage": 0, "accuracy": 0.67 },
+                    { "size": 50, "executionTime": 0.0577, "memoryUsage": 0.4699, "accuracy": 0.77 },
+                    { "size": 100, "executionTime": 0.1135, "memoryUsage": 0, "accuracy": 1 },
+                    { "size": 500, "executionTime": 1.5446, "memoryUsage": 0, "accuracy": 0.8 },
+                    { "size": 1000, "executionTime": 1.3377, "memoryUsage": 0, "accuracy": 0.5 }
+                ],
+                "investment": [
+                    { "size": 10, "executionTime": 0.0034, "memoryUsage": 0.0732, "accuracy": 0.66 },
+                    { "size": 50, "executionTime": 0.0005, "memoryUsage": 0, "accuracy": 0.6233 },
+                    { "size": 100, "executionTime": 0.0007, "memoryUsage": 0.0622, "accuracy": 0.67 },
+                    { "size": 500, "executionTime": 0.0004, "memoryUsage": 0.0622, "accuracy": 0.6467 },
+                    { "size": 1000, "executionTime": 0.0004, "memoryUsage": 0.0622, "accuracy": 0.7067 }
+                ],
+                "prediction": [
+                    { "size": 10, "executionTime": 1.2451, "memoryUsage": 0.6597, "accuracy": 1 },
+                    { "size": 50, "executionTime": 2.0247, "memoryUsage": 1.0198, "accuracy": 0.6596 },
+                    { "size": 100, "executionTime": 2.3370, "memoryUsage": 0.4065, "accuracy": 0.7938 },
+                    { "size": 500, "executionTime": 3.6581, "memoryUsage": 0, "accuracy": 0.5493 },
+                    { "size": 1000, "executionTime": 7.2612, "memoryUsage": 1.3541, "accuracy": 0.4604 }
+                ]
+            }
+        };
+
+        document.getElementById('timestamp').innerText = new Date(data.timestamp).toLocaleString();
+
+        const sizes = data.models.overspending.map(d => d.size);
+
+        // Colors
+        const colors = {
+            overspending: 'rgba(255, 99, 132, 1)',
+            investment: 'rgba(54, 162, 235, 1)',
+            prediction: 'rgba(75, 192, 192, 1)'
+        };
+        const bgColors = {
+            overspending: 'rgba(255, 99, 132, 0.2)',
+            investment: 'rgba(54, 162, 235, 0.2)',
+            prediction: 'rgba(75, 192, 192, 0.2)'
+        };
+
+        // Execution Time Chart
+        new Chart(document.getElementById('timeChart'), {
+            type: 'line',
+            data: {
+                labels: sizes,
+                datasets: [
+                    {
+                        label: 'Overspending (Anomaly)',
+                        data: data.models.overspending.map(d => d.executionTime),
+                        borderColor: colors.overspending,
+                        backgroundColor: bgColors.overspending,
+                        tension: 0.3
+                    },
+                    {
+                        label: 'Investment (Recommendation)',
+                        data: data.models.investment.map(d => d.executionTime),
+                        borderColor: colors.investment,
+                        backgroundColor: bgColors.investment,
+                        tension: 0.3
+                    },
+                    {
+                        label: 'Prediction (Regression)',
+                        data: data.models.prediction.map(d => d.executionTime),
+                        borderColor: colors.prediction,
+                        backgroundColor: bgColors.prediction,
+                        tension: 0.3
+                    }
+                ]
+            },
+            options: { scales: { y: { title: { display: true, text: 'Time (ms)' } } } }
+        });
+
+        // Accuracy Chart
+        new Chart(document.getElementById('accuracyChart'), {
+            type: 'line',
+            data: {
+                labels: sizes,
+                datasets: [
+                    {
+                        label: 'Overspending (F1)',
+                        data: data.models.overspending.map(d => d.accuracy),
+                        borderColor: colors.overspending,
+                        backgroundColor: bgColors.overspending,
+                        tension: 0.3
+                    },
+                    {
+                        label: 'Investment (Score)',
+                        data: data.models.investment.map(d => d.accuracy),
+                        borderColor: colors.investment,
+                        backgroundColor: bgColors.investment,
+                        tension: 0.3
+                    },
+                    {
+                        label: 'Prediction (R²)',
+                        data: data.models.prediction.map(d => d.accuracy),
+                        borderColor: colors.prediction,
+                        backgroundColor: bgColors.prediction,
+                        tension: 0.3
+                    }
+                ]
+            },
+            options: { scales: { y: { title: { display: true, text: 'Score' }, beginAtZero: true, max: 1.1 } } }
+        });
+
+        // Memory Chart
+        new Chart(document.getElementById('memoryChart'), {
+            type: 'bar',
+            data: {
+                labels: sizes,
+                datasets: [
+                    {
+                        label: 'Overspending',
+                        data: data.models.overspending.map(d => d.memoryUsage),
+                        backgroundColor: bgColors.overspending,
+                        borderColor: colors.overspending,
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Prediction',
+                        data: data.models.prediction.map(d => d.memoryUsage),
+                        backgroundColor: bgColors.prediction,
+                        borderColor: colors.prediction,
+                        borderWidth: 1
+                    }
+                ]
+            },
+            options: { scales: { y: { title: { display: true, text: 'Memory (MB)' } } } }
+        });
+
+        // Radar Chart (Summary at N=1000)
+        // Normalize values for radar
+        const maxTime = Math.max(
+            data.models.overspending[4].executionTime,
+            data.models.investment[4].executionTime,
+            data.models.prediction[4].executionTime
+        );
+
+        // Inverse normalization for time (lower is better, so 1 - normalized)
+        const normTime = (val) => 1 - (val / (maxTime * 1.1));
+
+        new Chart(document.getElementById('radarChart'), {
+            type: 'radar',
+            data: {
+                labels: ['Speed (1/Time)', 'Accuracy/Score', 'Efficiency (Low Memory)'],
+                datasets: [
+                    {
+                        label: 'Overspending',
+                        data: [
+                            normTime(data.models.overspending[4].executionTime),
+                            data.models.overspending[4].accuracy,
+                            1 // Low memory
+                        ],
+                        borderColor: colors.overspending,
+                        backgroundColor: bgColors.overspending
+                    },
+                    {
+                        label: 'Investment',
+                        data: [
+                            normTime(data.models.investment[4].executionTime),
+                            data.models.investment[4].accuracy,
+                            1 // Low memory
+                        ],
+                        borderColor: colors.investment,
+                        backgroundColor: bgColors.investment
+                    },
+                    {
+                        label: 'Prediction',
+                        data: [
+                            normTime(data.models.prediction[4].executionTime),
+                            data.models.prediction[4].accuracy,
+                            0.8 // Higher memory
+                        ],
+                        borderColor: colors.prediction,
+                        backgroundColor: bgColors.prediction
+                    }
+                ]
+            },
+            options: { scales: { r: { beginAtZero: true, max: 1 } } }
+        });
+    </script>
+</body>
+
+</html>

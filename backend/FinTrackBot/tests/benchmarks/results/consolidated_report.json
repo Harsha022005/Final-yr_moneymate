@@ -1,0 +1,47 @@
+{
+  "timestamp": "2026-01-26T08:37:04.296Z",
+  "benchmarks": {
+    "overspending": {
+      "avgF1Score": "0.5244",
+      "maxF1Score": "1.0000",
+      "minF1Score": "0.1200",
+      "avgRuntime": "0.35",
+      "maxRuntime": "1.85",
+      "totalTests": 9
+    },
+    "investment": {
+      "trainingTime": "34.12",
+      "avgPredictionTime": "0.0031",
+      "totalTests": 40,
+      "overallMetrics": {
+        "mse": "120059064.83",
+        "rmse": "10957.15",
+        "mae": "8159.93",
+        "r2": "0.6359",
+        "accuracy": "15.00",
+        "meanError": "-7957.13"
+      }
+    },
+    "prediction": {
+      "avgPercentError": "8.53",
+      "minPercentError": "0.43",
+      "maxPercentError": "27.97",
+      "avgRuntime": "3.18",
+      "avgConfidence": "0.3274",
+      "stabilityMetrics": {
+        "mse": "342362.50",
+        "rmse": "585.12",
+        "mae": "481.30",
+        "mape": "2.41",
+        "accuracy": "100.00",
+        "meanError": "144.70"
+      },
+      "totalTests": 10
+    }
+  },
+  "summary": {
+    "totalRuntime": "0.11",
+    "totalTests": 59,
+    "completedAt": "2026-01-26T08:37:04.407Z"
+  }
+}
