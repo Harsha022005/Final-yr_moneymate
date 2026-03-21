@@ -40,7 +40,7 @@ function App() {
         </div>
 
         <div className="hidden md:block">
-          <img src="/assets/finance-illustration.png" alt="Finance illustration" className="max-w-md" />
+          <img src="https://img.freepik.com/free-vector/financial-management-isometric-composition-with-3d-budget-planning-money-symbols-dark-background-vector-illustration_1284-73166.jpg" alt="Finance illustration" className="max-w-md" />
         </div>
       </section>
 
