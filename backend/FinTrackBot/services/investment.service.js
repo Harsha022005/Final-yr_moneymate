@@ -55,7 +55,8 @@ export async function getInvestmentRecommendation(userId) {
         const monthlyIncome = monthlyIncomes.reduce((total, inc) => total + (inc.amount || 0), 0);
 
         // Use ML Model for recommendation
-        const recommendedAmount = investmentML.recommend(monthlyIncome, avgMonthlySpend);
+        const mlRecommendation = investmentML.recommend(monthlyIncome, avgMonthlySpend);
+        const recommendedAmount = mlRecommendation.amount || 0;
 
         // Calculate risk score based on available data (simplified for current schema)
         const age = 30; // Default since not in schema
