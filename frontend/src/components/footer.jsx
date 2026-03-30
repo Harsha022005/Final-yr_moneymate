@@ -9,7 +9,7 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">About Us</h3>
             <p className="text-sm">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              We are dedicated to helping individuals and businesses take control of their finances through smart, simple, and secure technology. Our finance tracker is designed to turn complex financial data into clear insights—so you can track spending, manage budgets, and make informed decisions with confidence. By combining intelligent analytics with an easy-to-use experience, we aim to empower better financial habits and long-term financial growth for everyone.
             </p>
           </div>
 
@@ -33,16 +33,16 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Contact</h3>
             <p className="text-sm">
-              Email: info@example.com <br />
-              Phone: +1 123 456 7890 <br />
-              Address: 123 Main St, City, Country
+              Email: moneymate@gmail.com <br />
+              Phone: +91 9999444433 <br />
+              Address: 123 Main St, Visakhapatnam, Andhra Pradesh ,India
             </p>
           </div>
         </div>
 
         {/* Copyright */}
         <div className="mt-8 text-center text-sm">
-          <p>&copy; {new Date().getFullYear()} Your Company. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} MoneyMate. All rights reserved.</p>
         </div>
       </div>
     </footer>
